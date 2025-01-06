@@ -502,7 +502,7 @@ Host: localhost:8080
   "username" : "hello",
   "password" : "1234",
   "email" : "hello@nate.com",
-  "imgBase64" : "data:image/jpg;base64,faUQZyttEERFuCtDEtovOeZxmpFlCTyJxVggwY04wsi5ITDFn3GQbKKVvpYL0nGvLHakR4vbOIRWQGP3QJ7GeuIojYeqHq1vEgHqzbjzO9lNTlbSvYQahY02nEUhu7LJlknIacoOpqVOGKS84IvHzbEhXRg0bpnalFdsjZfawENvGzVaLyKyyvRn0dvNENwIPpRnNoVcRyNIcVWPTUZ7AMg02DEpgWjAojuMIt9y1P9rSTaMEL6rRdUyKWYQ4gWIKDJI7f1HBzBOeHJUL7Z5BN0HBsecGbCv5WPOZlzSzP47yosYmrUWkHD3YM0izDQX3xIqB81Bm4Eh8LebJyzLbV2Lbv2tg7r51G04mXRO89mVJMM4mWq9JJkaFPJz3L7bbKk4d31qTvmyN3pN4sWDuY8DCrK71oO5gUsYXy7Hyst3ggx8dRCrAdwOb9aXY35kuoiqNyGiqPrxCJKbizjj7nhriyeYrHgVuNIdemrDDp82H6vButHLYNbpKzJvQdJc82yrxIiUNXvBU7xGjm7uhTmt0v2FA9VRV6OgYRmrvGQdDDqjakZkrKRfOxWBgOM2WemAHIsAKStOqIJKRw64QVfgKjX6lP3AKmVcdoLUrfny5ctNNOJJzxTUSVyvWULMMeCElL0AR4o0rQjag2ZJaL1A3oHy20cNP7gh8YOx1sGwOE91RdBUrPCDDGPz7xG4NQLpP33HQ84S0QjjOmIH6YetwtoNZR7pSczLhJroBjB38YmY5xvQbt8WcL8pmxqCSm9BfzaqhoHcMb032Mi55eANMbtqsCTlvldckPW36BSDBCQW5CzqANLhCqf4QCO0Dp2b27w2lfn3VxqO3gei15BsRnA89oMNG5C1O8gILmiX8MQno7w6rnKUxlN4nObZKGeeKSF6GbhSZm66Kjhkf5OrmuNTfNiMXm7CwC4bY1ED5np95WvhoyVUXUyxCOTy96cpXkQBBbNyobPsrTmqxovEYGuyJaPDISDGr0iZ"
+  "imgBase64" : "data:image/jpg;base64,gln031zy4bNELwBKLSrycNkbkQ3CoodUhjpzYVBzh23BATHgbzaWUN2QYqeJ703FAJteBlwV31xtuRrv6jkVJYApuslLYR6XjVNMdMyXtuNCfgdkNz5p27yZcd0MKd3gU2BygBCVb1SZIRMjYQ8h62grOfTdGes14Pu7ed5mjJPxFKtIgi2y8tPWmaMPHXM92H7dTyR00RbzaHGLrvcxDMAUU6tqcbiEM4aFAkdGKkpVujlDQwug4K9kNIwcwY5i2DiNxBKMDJNNtjwpz5GZPXHMoyDssfKP25RQf3YcalWytTy3HXJ9ijNj99IIutz7we0pyMevnd6XIxQSI8vrk4skCHqA13j6b72WqelOb0U183he9hnwj6hMSoJtVy4LxgakeJy9NgUKz3frLX6Cw1IPguogkw59hT0fiqSeSJXFwEOO5YrbugI4HVH1iDMWGzID6jVWHQClgQfItLmWltoreK0ZF2voY32YaiTjLzvJWjqqPqDgZGynxhoIPV0cp3Rp69ZI3CIIkDuMBjS2ZtggbeG8vQysyHsrV9WHycdbjr9KBAYvH8U1LLEDIN2x3QjptXs44kO5QJsNdTXe2WA4oQ6lW5soQOPPzTbV2cCFFya1ge6UVYb3qE3hJmLLonnGAdlnF8J4iP45Hgmktg4Szg8ZpnFtltMOhm9RHRt1vrS5bCXOma7ciGDgTd0xlsq2OSnb5b2umTWM4zF7MV5uC4SK7bu67emnkROG6e2bLEK6WhsyjWjdFXtuydcYFhqaLR3f6pTmEXSSm6I803IapQVaLMYBhh7qsIf5l2bN3hP2v1J3knOy0em6wKoQgQSxgZuaEA7vmoX2K7mwI1QJfUSNsi27mArLOcgG2AmfPiEDY5q6CxVinRPJQHXgl8E7tEp7Wk57maJMMdlUO45U2urF6ERHt3HIewAoNAcmwYMtUjKt0ayiGOr0JXARO1VQol7h8eEcSSvTD4QCoiwjRyeYp7sxK0x663cV"
 }</code></pre>
 </div>
 </div>
@@ -512,9 +512,11 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 202
 
@@ -523,7 +525,7 @@ Content-Length: 202
   "response" : {
     "id" : 4,
     "username" : "hello",
-    "imgUrl" : "/images/87b7d57c-6165-45a0-acff-7b787e627ee5.jpg"
+    "imgUrl" : "/images/a8fe3c58-2749-4388-9d71-2f64147bb668.jpg"
   },
   "status" : 200,
   "errorMessage" : null
@@ -555,10 +557,12 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzIsInVzZXJuYW1lIjoic3NhciJ9.T3RFkFBR5szKcUHr1QBHO2rPNcqjl75eiEtoYcKkaHoqBUXS9aE-VHpXbOGNOd1op8xyoWJ84G2gRrNjUsO4XQ
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Content-Type: application/json;charset=UTF-8
 Content-Length: 166
 
@@ -583,7 +587,7 @@ Content-Length: 166
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /auto/login HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Host: localhost:8080
 Content-Type: application/x-www-form-urlencoded</code></pre>
 </div>
@@ -594,9 +598,11 @@ Content-Type: application/x-www-form-urlencoded</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 166
 
@@ -621,7 +627,7 @@ Content-Length: 166
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/user/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzIsInVzZXJuYW1lIjoic3NhciJ9.T3RFkFBR5szKcUHr1QBHO2rPNcqjl75eiEtoYcKkaHoqBUXS9aE-VHpXbOGNOd1op8xyoWJ84G2gRrNjUsO4XQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -631,9 +637,11 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 282
 
@@ -644,8 +652,8 @@ Content-Length: 282
     "username" : "ssar",
     "email" : "ssar@nate.com",
     "imgUrl" : "/images/1.png",
-    "createdAt" : "2025-01-02T16:17:52",
-    "updatedAt" : "2025-01-02T16:17:52"
+    "createdAt" : "2025-01-02T14:12:54",
+    "updatedAt" : "2025-01-02T14:12:54"
   },
   "status" : 200,
   "errorMessage" : null
@@ -662,7 +670,7 @@ Content-Length: 282
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/user/1/password HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Content-Length: 27
 Host: localhost:8080
 
@@ -677,9 +685,11 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 91
 
@@ -701,12 +711,12 @@ Content-Length: 91
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/user/1/img HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzIsInVzZXJuYW1lIjoic3NhciJ9.T3RFkFBR5szKcUHr1QBHO2rPNcqjl75eiEtoYcKkaHoqBUXS9aE-VHpXbOGNOd1op8xyoWJ84G2gRrNjUsO4XQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Content-Length: 1046
 Host: localhost:8080
 
 {
-  "imgBase64" : "data:image/jpg;base64,yRKQPa2nLOhV9AxOXb7t0kRC5Fl7NdS8SKhuhLRp0Tz6Pflpa0MatbeKnsmtB6f56cynPuqhpu2jBKBj4pSIcfYLpus2ZlkS9SDUgwdMrtCmr6me8cLjmVtuiOrpQkoVeZ79wGvg3zXACA9nNCRF1bjVu82qDTlPFOWPqlt8WExsf4W6EP4mXha1LD2zoeQdtMLyT115onfGyqwqCBeiEJxitdNUwBeOUmtkxXePzMm6s4AdKLAuCm4NXqAYuxbgCX5ViNMCaButWWw6ZZj7OLMoE4cjzJQgqwjQPi4DO9DWLzwITUhwv6AXLD3yH5lptF22UPHTajauDKGhox62DI9823GDcFqvZGbHClD1WFcH11AcozW7wKNMOrMKHrWPAqaXVY5DzAb49hLtpU3LTZ1xDuHR4gElUwukv1Xow4k5Dmz33JXdeUvhovOh3QpkNANJfh7Q5ZCqgAj9tXW5rxIcT97rdkcHDQYZi0ZXpISPxUJ5i81KaTtcevZyMNhleiAo2vQNfiiSsgGJoUdBdgIkurx28XYAPuIhaVgpKjMYad2RHCFMSRro3rysRYHDLIZMPxXI97y4yQwULVhwX5f28mvwqj5srmi60YS99xhWWUC6xdGUSkApjxCCbX9isxnsfZlTzanmg1RdduLpJmUVtMXGqPI5YHfHe1u3aLmQfTtl2SgDzgex2aq4e9ngUAOmUVeC8dHpyF65xVAoOJs6J8OGL5xQJTzMWMLe0ZwP17EkYMd5euGcLrgK1LbGnIuImJydIEAOScvo93tsIFPiIvSyklts1WWyrhhbDq0HE79CSHwXSaBerYUvZh0a6GiMnbTCNuEZh1S75s5dlZS5mKVO2czLSKmPbLYwMNvHhP5g6qresLrpqeWyEPoYHFBF7yIQdoxCK36VFCQf54H6mxn815ku2sqB4Ih1WusSinEo0fc0a6LT6YV89zRd7c47sIagJt9kDpkdPW06B19b4jagPqa84WkmP1XQ"
+  "imgBase64" : "data:image/jpg;base64,fgJ6tV7edQ1n5JyoOYt45jRjxqqtgYkDeFx31qqGBvsb4EQcms6QRyWoiZRZIyqsz07DoMd6wmb6HputDBFnRYPgQbxfmn9xjqwStdkCuwq9K4DlIYaITVQMwgY7XObhg3R5jWsSJw1eDNxsUEjNWGUjSMQ0MfIdaP1BCF3JbLWiM36oxA8KwLeFwcP7oVIpfQyjePoQnJabJLUb0mBf5yQSNbGnJb6ApvwQYu2aK07WqFMNMis9lbgVCAsQtyBCBDjtuXNvzOqqoT7qW2ovrCtmTcmZkgVTb9ckpDXjbs3A6TzIp8hMXEIruEXvJXW6myJadowdVEFPStjRkP48Zcp4nSxNusrYEaBIhITAdepp8AwIoB9NgeCo9PylvhlGJsXpYBh2cbE4RIkxFZ0QDbXKzbIudxbC9R6wANTJzVdQwTorL319F3gdTbPiwPT81YODW5BS2KclF2rXe0GKwZCa7QRUoQCYt6S8zCM63VnfU9g6TGM3E6qx4jfjd6Gv3gF9vF9XhGdjL7DlZGIPce7tMIM86bmjs02P3ybQEAMhbxdZN3doQxcWThsSutofJCEpEPpXWyyuNUXqBVHXSGoJ82hNH7AXFytF5NCbkv3QVCT6tkJYiw0FKwLZEO73HNDB6b6CWcIkIB0v89IEBnHvL8K1RKiMeCiw3cNEdizyxvYvaDhAceDYZUluqxoeodpUsDha01pgsxwpeQ5lA0dUWOywP5Tb0SzWsgkHhxJFx6tsS7awbJ0o443Ylkq26zLTCQBjPuGYYfoSojAfqWBPPyUB2LVSy8bIYWaMnik2HVmhKikegcp0MA8X70aPfPju1pzblLrTwsRDpptwkY0ut7GQ8V2MmtYdDdViFtHGn16F10zlJvN2PBjqdFmEeipn9kuLFKjFFvgeLuzJFZcm8PP1vlFVLOP701VPX68CA8UDaY2e0IoX3FFmKk6FqT0dEq2JQxSWG0Ty3cSabw6DEhoEu7scCzGRC17F"
 }</code></pre>
 </div>
 </div>
@@ -716,9 +726,11 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 201
 
@@ -727,7 +739,7 @@ Content-Length: 201
   "response" : {
     "id" : 1,
     "username" : "ssar",
-    "imgUrl" : "/images/b3c77d9e-4201-4c7e-b2d9-c1fa9a4a617b.jpg"
+    "imgUrl" : "/images/1569ffb2-0146-412a-8e5c-b92c3650fcb8.jpg"
   },
   "status" : 200,
   "errorMessage" : null
@@ -778,7 +790,7 @@ Content-Length: 201
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/post?page=0 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -788,9 +800,11 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 3390
 
@@ -806,8 +820,8 @@ Content-Length: 3390
       "id" : 23,
       "title" : "title 23",
       "content" : "content 23",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -818,8 +832,8 @@ Content-Length: 3390
       "id" : 22,
       "title" : "title 22",
       "content" : "content 22",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -830,8 +844,8 @@ Content-Length: 3390
       "id" : 21,
       "title" : "title 21",
       "content" : "content 21",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -842,8 +856,8 @@ Content-Length: 3390
       "id" : 20,
       "title" : "title 20",
       "content" : "content 20",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -854,8 +868,8 @@ Content-Length: 3390
       "id" : 19,
       "title" : "title 19",
       "content" : "content 19",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -866,8 +880,8 @@ Content-Length: 3390
       "id" : 18,
       "title" : "title 18",
       "content" : "content 18",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -878,8 +892,8 @@ Content-Length: 3390
       "id" : 17,
       "title" : "title 17",
       "content" : "content 17",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -890,8 +904,8 @@ Content-Length: 3390
       "id" : 16,
       "title" : "title 16",
       "content" : "content 16",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -902,8 +916,8 @@ Content-Length: 3390
       "id" : 15,
       "title" : "title 15",
       "content" : "content 15",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -914,8 +928,8 @@ Content-Length: 3390
       "id" : 14,
       "title" : "title 14",
       "content" : "content 14",
-      "createdAt" : "2025-01-02T16:17:51",
-      "updatedAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
+      "updatedAt" : "2025-01-02T14:12:54",
       "user" : {
         "id" : 2,
         "username" : "cos",
@@ -938,7 +952,7 @@ Content-Length: 3390
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/post/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzMsInVzZXJuYW1lIjoic3NhciJ9.ZRmBhIPhdSuuKvFyIZXoGcih714UZTT2SI08QblY9894YApqh4uwpYKtQN-DnCprkWMO9TGubu4Q49QJq27-hw
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -948,9 +962,11 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 1521
 
@@ -960,8 +976,8 @@ Content-Length: 1521
     "id" : 1,
     "title" : "title 1",
     "content" : "content 1",
-    "createdAt" : "2025-01-02T16:17:51",
-    "updatedAt" : "2025-01-02T16:17:51",
+    "createdAt" : "2025-01-02T14:12:53",
+    "updatedAt" : "2025-01-02T14:12:53",
     "bookmarkCount" : 1,
     "isBookmark" : true,
     "user" : {
@@ -972,7 +988,7 @@ Content-Length: 1521
     "replies" : [ {
       "id" : 5,
       "comment" : "comment 5",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:53",
       "replyUser" : {
         "id" : 3,
         "username" : "love",
@@ -981,7 +997,7 @@ Content-Length: 1521
     }, {
       "id" : 4,
       "comment" : "comment 4",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:53",
       "replyUser" : {
         "id" : 2,
         "username" : "cos",
@@ -990,7 +1006,7 @@ Content-Length: 1521
     }, {
       "id" : 3,
       "comment" : "comment 3",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:53",
       "replyUser" : {
         "id" : 2,
         "username" : "cos",
@@ -999,7 +1015,7 @@ Content-Length: 1521
     }, {
       "id" : 2,
       "comment" : "comment 2",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:53",
       "replyUser" : {
         "id" : 1,
         "username" : "ssar",
@@ -1008,7 +1024,7 @@ Content-Length: 1521
     }, {
       "id" : 1,
       "comment" : "comment 1",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:53",
       "replyUser" : {
         "id" : 1,
         "username" : "ssar",
@@ -1031,7 +1047,7 @@ Content-Length: 1521
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/post HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Content-Length: 57
 Host: localhost:8080
 
@@ -1047,9 +1063,11 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 379
 
@@ -1059,8 +1077,8 @@ Content-Length: 379
     "id" : 24,
     "title" : "title 24",
     "content" : "content 24",
-    "createdAt" : "2025-01-02T16:17:51",
-    "updatedAt" : "2025-01-02T16:17:51",
+    "createdAt" : "2025-01-02T14:12:54",
+    "updatedAt" : "2025-01-02T14:12:54",
     "user" : {
       "id" : 1,
       "username" : "ssar",
@@ -1082,7 +1100,7 @@ Content-Length: 379
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/post/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzMsInVzZXJuYW1lIjoic3NhciJ9.ZRmBhIPhdSuuKvFyIZXoGcih714UZTT2SI08QblY9894YApqh4uwpYKtQN-DnCprkWMO9TGubu4Q49QJq27-hw
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1092,9 +1110,11 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 91
 
@@ -1116,7 +1136,7 @@ Content-Length: 91
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">PUT /api/post/1 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Content-Length: 59
 Host: localhost:8080
 
@@ -1132,9 +1152,11 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 380
 
@@ -1144,8 +1166,8 @@ Content-Length: 380
     "id" : 1,
     "title" : "title 100",
     "content" : "content 100",
-    "createdAt" : "2025-01-02T16:17:51",
-    "updatedAt" : "2025-01-02T16:17:51",
+    "createdAt" : "2025-01-02T14:12:54",
+    "updatedAt" : "2025-01-02T14:12:54",
     "user" : {
       "id" : 1,
       "username" : "ssar",
@@ -1188,7 +1210,7 @@ Content-Length: 380
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/reply HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Content-Length: 48
 Host: localhost:8080
 
@@ -1204,9 +1226,11 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 287
 
@@ -1215,7 +1239,7 @@ Content-Length: 287
   "response" : {
     "id" : 7,
     "comment" : "comment 7",
-    "createdAt" : "2025-01-02T16:17:51",
+    "createdAt" : "2025-01-02T14:12:54",
     "replyUser" : {
       "id" : 1,
       "username" : "ssar",
@@ -1236,7 +1260,7 @@ Content-Length: 287
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">GET /api/reply?page=0&amp;postId=1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1246,9 +1270,11 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 879
 
@@ -1263,7 +1289,7 @@ Content-Length: 879
     "replies" : [ {
       "id" : 5,
       "comment" : "comment 5",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
       "replyUser" : {
         "id" : 3,
         "username" : "love",
@@ -1272,7 +1298,7 @@ Content-Length: 879
     }, {
       "id" : 4,
       "comment" : "comment 4",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
       "replyUser" : {
         "id" : 2,
         "username" : "cos",
@@ -1281,7 +1307,7 @@ Content-Length: 879
     }, {
       "id" : 3,
       "comment" : "comment 3",
-      "createdAt" : "2025-01-02T16:17:51",
+      "createdAt" : "2025-01-02T14:12:54",
       "replyUser" : {
         "id" : 2,
         "username" : "cos",
@@ -1303,7 +1329,7 @@ Content-Length: 879
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/reply/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzQsInVzZXJuYW1lIjoic3NhciJ9.-xTRkcd_0AE2lEpkj0Q4e7ooDpzVIPAtQlV4H8OPUHZGWQJfAY5i1xDEl-BJ8PWUvr4B5R6l5SOw-R7xd-friQ
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1313,9 +1339,11 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 91
 
@@ -1342,7 +1370,7 @@ Content-Length: 91
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">POST /api/bookmark HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzMsInVzZXJuYW1lIjoic3NhciJ9.ZRmBhIPhdSuuKvFyIZXoGcih714UZTT2SI08QblY9894YApqh4uwpYKtQN-DnCprkWMO9TGubu4Q49QJq27-hw
 Content-Length: 20
 Host: localhost:8080
 
@@ -1357,9 +1385,11 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 187
 
@@ -1369,7 +1399,7 @@ Content-Length: 187
     "id" : 2,
     "postId" : 1,
     "userId" : 1,
-    "createdAt" : "2025-01-02T16:17:51"
+    "createdAt" : "2025-01-02T14:12:53"
   },
   "status" : 200,
   "errorMessage" : null
@@ -1385,7 +1415,7 @@ Content-Length: 187
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">DELETE /api/bookmark/1 HTTP/1.1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5NzUwNzEsInVzZXJuYW1lIjoic3NhciJ9.ox_Vu7zmLlEdr5YgHQMezkithQwuhSVJ_b7TmoIXgsHMrxYlUiU9EcYwWrAiYwbLQfXLoidDVLBRQZud6jNPiQ
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpbWdVcmwiOiIvaW1hZ2VzLzEucG5nIiwic3ViIjoibWV0YWNvZGluZyIsImlkIjoxLCJleHAiOjE3MzU5Njc1NzMsInVzZXJuYW1lIjoic3NhciJ9.ZRmBhIPhdSuuKvFyIZXoGcih714UZTT2SI08QblY9894YApqh4uwpYKtQN-DnCprkWMO9TGubu4Q49QJq27-hw
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1395,9 +1425,11 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code data-lang="http" class="language-http hljs">HTTP/1.1 200 OK
-Vary: Origin
-Vary: Access-Control-Request-Method
-Vary: Access-Control-Request-Headers
+Access-Control-Expose-Headers: Authorization
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST, PUT, PATCH, GET, DELETE, OPTIONS
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization
 Content-Type: application/json;charset=UTF-8
 Content-Length: 91
 
@@ -1417,7 +1449,7 @@ Content-Length: 91
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2025-01-02 12:14:06 +0900
+Last updated 2025-01-02 12:14:18 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
